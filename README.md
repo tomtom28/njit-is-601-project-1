@@ -1,2 +1,4 @@
-# njit-is-601-project-1
-Test Driven Python Calculator
+# IS 601 - Project 1
+## Test Driven Python Calculator
+
+
