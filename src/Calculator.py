@@ -15,6 +15,10 @@ class Calculator:
     def division(cls, a, b):
         return round(float(b) / float(a), 9)  # limit to 9 significant digits
 
+    @classmethod
+    def multiplication(cls, a, b):
+        return int(a) * int(b)
+
     # Object Methods:
     def add(self, a, b):
         self.result = self.addition(a, b)
@@ -22,4 +26,8 @@ class Calculator:
 
     def divide(self, a, b):
         self.result = self.division(a, b)
+        return self.result
+
+    def multiply(self, a, b):
+        self.result = self.multiplication(a, b)
         return self.result

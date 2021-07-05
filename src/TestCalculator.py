@@ -5,7 +5,6 @@ from Calculator import Calculator
 from CsvReader import CsvReader
 
 
-
 class MyTestCase(unittest.TestCase):
 
     def setUp(self) -> None:
@@ -25,6 +24,13 @@ class MyTestCase(unittest.TestCase):
         for row in test_data:
             self.assertEqual(self.calculator.divide(row['Value 1'], row['Value 2']), float(row['Result']))
             self.assertEqual(self.calculator.result, float(row['Result']))
+
+    def test_calculator_multiplication(self):
+        test_data = CsvReader(TestProperties.MULTIPLICATION_FILE_NAME).data
+        for row in test_data:
+            self.assertEqual(self.calculator.multiply(row['Value 1'], row['Value 2']), int(row['Result']))
+            self.assertEqual(self.calculator.result, int(row['Result']))
+
 
 
 if __name__ == '__main__':
