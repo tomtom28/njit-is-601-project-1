@@ -19,6 +19,10 @@ class Calculator:
     def multiplication(cls, a, b):
         return int(a) * int(b)
 
+    @classmethod
+    def square(cls, a):
+        return int(a) ** 2
+
     # Object Methods:
     def add(self, a, b):
         self.result = self.addition(a, b)
@@ -30,4 +34,8 @@ class Calculator:
 
     def multiply(self, a, b):
         self.result = self.multiplication(a, b)
+        return self.result
+
+    def squared(self, a):
+        self.result = self.square(a)
         return self.result
