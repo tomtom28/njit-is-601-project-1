@@ -43,6 +43,12 @@ class MyTestCase(unittest.TestCase):
             self.assertEqual(self.calculator.sqrt(row['Value 1']), float(row['Result']))
             self.assertEqual(self.calculator.result, float(row['Result']))
 
+    def test_calculator_subtraction(self):
+        test_data = CsvReader(TestProperties.SUBTRACTION_FILE_NAME).data
+        for row in test_data:
+            self.assertEqual(self.calculator.subtract(row['Value 1'], row['Value 2']), int(row['Result']))
+            self.assertEqual(self.calculator.result, int(row['Result']))
+
 
 if __name__ == '__main__':
     unittest.main()

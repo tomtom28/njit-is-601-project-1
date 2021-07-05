@@ -2,7 +2,6 @@ import math
 
 
 class Calculator:
-
     # Initialization:
     result = 0
 
@@ -32,6 +31,10 @@ class Calculator:
         sigfig = math.floor(math.log(c, 10)) + 1  # number of significant digits in result
         return round(c, 9 - sigfig + 1)  # limit to 9 significant figures
 
+    @classmethod
+    def subtraction(cls, a, b):
+        return int(b) - int(a)
+
     # Object Methods:
     def add(self, a, b):
         self.result = self.addition(a, b)
@@ -51,4 +54,8 @@ class Calculator:
 
     def sqrt(self, a):
         self.result = self.square_root(a)
+        return self.result
+
+    def subtract(self, a, b):
+        self.result = self.subtraction(a, b)
         return self.result
