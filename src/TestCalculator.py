@@ -34,7 +34,7 @@ class MyTestCase(unittest.TestCase):
     def test_calculator_square(self):
         test_data = CsvReader(TestProperties.SQUARE_FILE_NAME).data
         for row in test_data:
-            self.assertEqual(self.calculator.squared(row['Value 1']), int(row['Result']))
+            self.assertEqual(self.calculator.square(row['Value 1']), int(row['Result']))
             self.assertEqual(self.calculator.result, int(row['Result']))
 
     def test_calculator_square_root(self):
