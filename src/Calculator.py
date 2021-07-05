@@ -1,3 +1,6 @@
+import math
+
+
 class Calculator:
 
     # Initialization:
@@ -13,7 +16,7 @@ class Calculator:
 
     @classmethod
     def division(cls, a, b):
-        return round(float(b) / float(a), 9)  # limit to 9 significant digits
+        return round(float(b) / float(a), 9)  # limit to 9 decimal places
 
     @classmethod
     def multiplication(cls, a, b):
@@ -22,6 +25,12 @@ class Calculator:
     @classmethod
     def square(cls, a):
         return int(a) ** 2
+
+    @classmethod
+    def square_root(cls, a):
+        c = math.sqrt(int(a))  # get result
+        sigfig = math.floor(math.log(c, 10)) + 1  # number of significant digits in result
+        return round(c, 9 - sigfig + 1)  # limit to 9 significant figures
 
     # Object Methods:
     def add(self, a, b):
@@ -38,4 +47,8 @@ class Calculator:
 
     def squared(self, a):
         self.result = self.square(a)
+        return self.result
+
+    def sqrt(self, a):
+        self.result = self.square_root(a)
         return self.result
