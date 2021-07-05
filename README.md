@@ -10,3 +10,10 @@ The `TestCalculator` class then tests each operation against a known set of inpu
 in the `/csv` folder, where the `CsvReader` class parses each file to derive test cases.
 
 The test filepaths are provided in the `TestProperties` class.
+
+
+## Screenshot(s)
+Screenshots are shown below.
+
+Below we can see that all 7 test cases have passed:
+![Unit Tests Passed](/screenshots/7-unit-tests-passed.jpg?raw=true)
