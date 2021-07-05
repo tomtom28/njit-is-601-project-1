@@ -2,12 +2,17 @@ import math
 
 
 # Static Methods:
+def n_sigfig(a, n):
+    sigfig = math.floor(math.log(a, 10)) + 1  # number of significant digits in value
+    return round(a, n - sigfig + 1)  # returns value to "n" significant figures
+
+
 def addition(a, b):
     return int(a) + int(b)
 
 
 def division(a, b):
-    return round(float(b) / float(a), 9)  # limit to 9 decimal places
+    return float(b) / float(a)
 
 
 def multiplication(a, b):
@@ -19,9 +24,7 @@ def square(a):
 
 
 def square_root(a):
-    c = math.sqrt(int(a))  # get result
-    sigfig = math.floor(math.log(c, 10)) + 1  # number of significant digits in result
-    return round(c, 9 - sigfig + 1)  # limit to 9 significant figures
+    return math.sqrt(int(a))
 
 
 def subtraction(a, b):
@@ -30,10 +33,9 @@ def subtraction(a, b):
 
 class Calculator:
     # Initialization:
-    result = 0
-
-    def __init__(self):
-        pass
+    def __init__(self, sigfig=9):
+        self.result = 0
+        self.sigfig = sigfig  # modify significant figures, or assume 9 digits
 
     # Object Methods:
     def add(self, a, b):
@@ -41,7 +43,7 @@ class Calculator:
         return self.result
 
     def divide(self, a, b):
-        self.result = division(a, b)
+        self.result = round(division(a, b), self.sigfig)
         return self.result
 
     def multiply(self, a, b):
@@ -53,7 +55,7 @@ class Calculator:
         return self.result
 
     def sqrt(self, a):
-        self.result = square_root(a)
+        self.result = n_sigfig(square_root(a), self.sigfig)
         return self.result
 
     def subtract(self, a, b):
